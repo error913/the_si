@@ -1,0 +1,97 @@
+<head>
+    <title>Estrattore numeri</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #op {
+            color: red;
+            font-size: xx-large;
+            text-align: center;
+
+        }
+        .gino{
+            color: black;
+            font-size: medium;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .gin{
+            color: black;
+            font-size: medium;
+            text-align: center;
+            padding-top: 30px;
+        }
+        .gi{
+            color: black;
+            font-size: large;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .text {
+            font-size: xx-large;
+
+        }
+        .navb {
+            color: #000;
+
+        }
+        body {
+                background-color: beige;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">ESTRATTORE NUMERI CASUALI</span>
+    </nav>
+    <div class="gin">
+        <p>Numero massimo: <input id="gf"></p>
+
+        <p>Numeri da estrarre: <input id="ho"></p>
+
+        <input type="radio" value="1" id="kij">
+        <label>Non ripetere numeri?</label>
+    </div>
+    <div class="gino">
+        <button type="button" class="btn btn-success" onclick="ui()">ESTRAI I NUMERI</button>
+    </div>
+    <hr>
+    <div class="gi">
+        <p>NUMERI ESTRATTI: <h1 id="op"></h1></p>
+    </div>
+    <script>
+        function range(l , h){
+            var list = [];
+            for (var i = l; i <= h; i++) {
+                list.push(i);
+            }
+            return list
+        }
+        function getrand(max){
+            return Math.floor(Math.random() * max);
+        }
+        function ui(){
+            var poi = []
+            var massi = document.getElementById('gf').value
+            var numeri = parseInt(document.getElementById('ho').value)
+            var lista = range(1 , massi)
+            var radio = document.getElementById('kij')
+            if(radio.checked){
+                for(let i = 0 ; i < numeri ; i++){
+                    random = getrand(lista.length-1)
+                    poi.push(lista[random])
+                    lista = ar(lista , random)
+                }
+            } else{
+                for(let i = 0 ; i < numeri ; i++){
+                    random = getrand(massi)
+                    poi.push(random+1)
+                }
+            }
+            document.getElementById('op').innerHTML = poi
+        }
+        function ar(arr, index) { 
+            return arr.slice(0, index).concat(arr.slice(index + 1));
+        }
+    </script>
+</body>

@@ -1,0 +1,44 @@
+<head>
+    <title>cazzo</title>
+    
+    <style>
+        .center {
+            border: 5px solid;
+            padding: 60px;
+        }
+    </style>
+    <script>
+        var el = []
+        function ty(){
+            let query = location.search
+            let params = new URLSearchParams(query)
+            let q = params.get("q")
+            document.getElementById("uy").innerHTML = q
+        }
+        function uo(){
+            const a = document.querySelector("#op")
+            window.location.replace(location.href+'?q='+el)
+            //console.log(location.href)
+        }
+        function il(){
+            const a = document.querySelector("#op")
+            el.push(a.value)
+            document.getElementById("yu").innerHTML = el
+        }
+    </script>
+</head>
+<body onload="ty()">
+    <div class="center">
+        <select id="op">
+            <option>cao</option>
+            <option>op</option>
+            <option><strong>ca</strong></option>
+        </select>
+        <button onclick="uo()">finisci</button>
+        <button onclick="il()">aggiungi</button>
+    </div>
+    <div>
+        <p id="yu"></p>
+        <p id="uy"></p>
+    </div>
+</body>
